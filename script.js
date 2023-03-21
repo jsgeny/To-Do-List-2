@@ -211,7 +211,7 @@
 
         filters.addEventListener("click", (event) => {
             // console.log(event.target.parentElement.parentElement.children[2]); // task
-            console.dir(event.target.parentElement.parentElement.children[2].children); // task
+            // console.dir(event.target.parentElement.parentElement.children[2].children); // task
             event.preventDefault();
             const filter = event.target.dataset.filter;
 
@@ -240,8 +240,9 @@
         const feedback = document.querySelector(".feedback");
         feedback.setAttribute("class", "feedback block");
         feedback.textContent = "Список пуст!";
-        setTimeout(function() {
+        let timeout = setTimeout(function() {
             feedback.setAttribute("class", "feedback");
+            clearTimeout(timeout);
         }, 2000);
 
         const task_add = document.querySelectorAll(".task_add");
@@ -263,8 +264,9 @@
         
         feedback.setAttribute("class", "feedback block");
         feedback.textContent = "Выбранных нет!";
-        setTimeout(function() {
+        let timeout = setTimeout(function() {
             feedback.setAttribute("class", "feedback");
+            clearTimeout(timeout);
         }, 2000);
 
         task_add.forEach((target) => {
@@ -273,8 +275,9 @@
 
                 feedback.setAttribute("class", "feedback block");
                 feedback.textContent = "Все выбранные удалены!";
-                setTimeout(function() {
+                let timeout = setTimeout(function() {
                     feedback.setAttribute("class", "feedback");
+                    clearTimeout(timeout);
                 }, 2000);
             } 
             updateLocalStorage();
